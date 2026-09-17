@@ -1,7 +1,11 @@
-# DeReset Brand Hub — Step 4.4 Static Package (Merged)
+# DeReset Brand Hub — Step 4.4 Static Package (Merged, Decision 005 logo update)
 
 **Status:** Source ready for deploy — not yet production-verified  
-**Date:** 2026-09-17
+**Date:** 2026-09-17 (logo swap applied same day, post Decision 005)
+
+## Decision 005 — Header logo swap (2026-09-17)
+
+Header wordmark changed from the light-transparent variant to the **dark wordmark**, on the same cream header background. This supersedes the "Critical fix #1" pairing described below and the LOCKED usage rule in `04-Design-System-and-Brand-Assets.md`. See the platform project's Decision Log (Decision 005) for the full DETECT → RECOMMEND → APPROVE record. Only `index.html` changed — no asset files were added or removed; both wordmark PNGs remain in `/assets/` for future use.
 
 ## What this is
 
