@@ -1,16 +1,53 @@
-## Hi there 👋
+# DeReset Brand Hub — Step 4.4 Static Package (Merged)
 
-<!--
-**dereset-hub/dereset-hub** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+**Status:** Source ready for deploy — not yet production-verified  
+**Date:** 2026-09-17
 
-Here are some ideas to get you started:
+## What this is
 
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+Production-ready static source for `dereset.com` (Cloudflare Pages project `dereset-hub`).
+
+Merged from:
+- Platform-built package (tokens, full favicon set, light wordmark on cream header, sticky header)
+- External Step 4.4 package (dark charcoal hero, editorial type scale, skip-link, 404, robots, simpler footer)
+
+## Critical fixes applied in merge
+
+1. **Logo contrast** — External package placed the *dark* wordmark on the charcoal hero/header context. Merged package uses the **light transparent wordmark** on the cream sticky header (correct pairing per locked design system).
+2. **Full favicon set** — Android Chrome 192/512 restored.
+3. **Font loading** — Playfair Display + Poppins loaded via Google Fonts CDN for v1 (loading method still TODO in design system).
+4. **No invented claims** — All product cards remain “Coming soon”; no live links, pricing, or status over-claims.
+5. **No fake legal links** — Footer is structural only (© + tagline).
+
+## Deploy contract
+
+| Field | Value |
+|-------|-------|
+| Rendering | Static HTML/CSS |
+| Framework | None |
+| Build command | *(blank)* |
+| Output directory | `/` (repository root) |
+| JS | None required for v1 |
+| Analytics | Deferred to Step 4.6 |
+| Security headers | Deferred to Step 4.7 (`_headers`) |
+
+## Install into Pages repo
+
+Copy the contents of this folder to the root of `dereset-hub/dereset-hub` (or equivalent), replacing the placeholder. Commit and push to the production branch.
+
+## Post-deploy QA checklist
+
+- [ ] https://dereset.com loads this hub (not placeholder)
+- [ ] Logo readable on cream header
+- [ ] Favicons appear in browser tab
+- [ ] Mobile layout (product grid stacks)
+- [ ] Keyboard: skip link appears on focus; focus rings visible
+- [ ] 404 page works for unknown paths
+- [ ] No console errors for missing assets
+
+## Out of scope (later steps)
+
+- Footer legal URLs/copy (4.5)
+- Cloudflare Web Analytics (4.6)
+- `_headers` security baseline (4.7)
+- Product live links (only when subdomain verified + AI DPL OS bridge if needed)

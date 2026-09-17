@@ -1,0 +1,126 @@
+/**
+ * DeReset Design Tokens
+ * Canonical shared token layer for the brand hub and product sites.
+ * Source of truth for values: 04-Design-System-and-Brand-Assets.md
+ * Do not redefine brand constants. Only add implementation tokens here.
+ */
+
+:root {
+  /* =========================================================
+     COLOR — Inherited brand constants (do not change)
+     ========================================================= */
+  --color-gold: #f0c234;
+  --color-cream: #f5f0e8;
+  --color-charcoal: #1a1a1a;
+
+  /* Semantic color roles */
+  --color-bg: var(--color-cream);
+  --color-bg-dark: var(--color-charcoal);
+  --color-text: var(--color-charcoal);
+  --color-text-on-dark: var(--color-cream);
+  --color-accent: var(--color-gold);
+  --color-border: rgba(26, 26, 26, 0.12);
+  --color-border-strong: rgba(26, 26, 26, 0.22);
+
+  /* =========================================================
+     TYPOGRAPHY
+     ========================================================= */
+  --font-display: "Playfair Display", Georgia, "Times New Roman", serif;
+  --font-body: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+
+  /* Weights (to be loaded) */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Type scale (mobile-first) */
+  --text-xs: 0.75rem;     /* 12px */
+  --text-sm: 0.875rem;    /* 14px */
+  --text-base: 1rem;      /* 16px */
+  --text-lg: 1.125rem;    /* 18px */
+  --text-xl: 1.25rem;     /* 20px */
+  --text-2xl: 1.5rem;     /* 24px */
+  --text-3xl: 1.875rem;   /* 30px */
+  --text-4xl: 2.25rem;    /* 36px */
+  --text-5xl: 3rem;       /* 48px */
+
+  --leading-tight: 1.2;
+  --leading-snug: 1.35;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.65;
+
+  /* =========================================================
+     SPACING
+     ========================================================= */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-5: 1.25rem;   /* 20px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-10: 2.5rem;   /* 40px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-20: 5rem;     /* 80px */
+  --space-24: 6rem;     /* 96px */
+
+  /* =========================================================
+     LAYOUT
+     ========================================================= */
+  --content-max: 72rem;          /* 1152px */
+  --content-narrow: 42rem;       /* ~672px for text blocks */
+  --header-height: 4.5rem;       /* 72px */
+
+  /* =========================================================
+     RADIUS & BORDER
+     ========================================================= */
+  --radius-sm: 0.25rem;   /* 4px */
+  --radius-md: 0.5rem;    /* 8px */
+  --radius-lg: 0.75rem;   /* 12px */
+  --radius-full: 9999px;
+
+  --border-width: 1px;
+
+  /* =========================================================
+     SHADOWS (minimal — pragmatic)
+     ========================================================= */
+  --shadow-sm: 0 1px 2px rgba(26, 26, 26, 0.06);
+  --shadow-md: 0 4px 12px rgba(26, 26, 26, 0.08);
+
+  /* =========================================================
+     FOCUS
+     ========================================================= */
+  --focus-ring-color: var(--color-gold);
+  --focus-ring-width: 2px;
+  --focus-ring-offset: 2px;
+
+  /* =========================================================
+     TRANSITION
+     ========================================================= */
+  --transition-fast: 150ms ease;
+  --transition-base: 200ms ease;
+
+  /* =========================================================
+     BREAKPOINTS (reference only — use in media queries)
+     ========================================================= */
+  /* --bp-sm: 640px; */
+  /* --bp-md: 768px; */
+  /* --bp-lg: 1024px; */
+  /* --bp-xl: 1280px; */
+}
+
+/* Utility: visible focus for keyboard users */
+:focus-visible {
+  outline: var(--focus-ring-width) solid var(--focus-ring-color);
+  outline-offset: var(--focus-ring-offset);
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0ms;
+    --transition-base: 0ms;
+  }
+}

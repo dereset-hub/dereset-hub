@@ -3,11 +3,133 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DeReset</title>
+
+  <title>DeReset — The pragmatic reset.</title>
+  <meta name="description" content="DeReset is a publisher of focused guides for everyday resets — decisions, boundaries, money pressure, and trust. Clear steps. No theatre.">
+
+  <link rel="canonical" href="https://dereset.com/">
+
+  <!-- Favicon Package A (locked) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#f5f0e8">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dereset.com/">
+  <meta property="og:title" content="DeReset — The pragmatic reset.">
+  <meta property="og:description" content="DeReset is a publisher of focused guides for everyday resets — decisions, boundaries, money pressure, and trust. Clear steps. No theatre.">
+  <meta property="og:site_name" content="DeReset">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="DeReset — The pragmatic reset.">
+  <meta name="twitter:description" content="DeReset is a publisher of focused guides for everyday resets — decisions, boundaries, money pressure, and trust. Clear steps. No theatre.">
+
+  <!-- Fonts: CDN for v1. Loading method remains TODO in design system. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/styles/dereset-tokens.css">
+  <link rel="stylesheet" href="/styles/site.css">
 </head>
 <body>
-  <h1>DeReset</h1>
-  <p>The pragmatic reset.</p>
-  <p>Brand hub placeholder — platform baseline in progress.</p>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="DeReset home">
+        <!-- Light transparent wordmark on cream header (correct contrast) -->
+        <img
+          src="/assets/dereset-wordmark-light-transparent.png"
+          alt="DeReset"
+          width="220"
+          height="73"
+        >
+      </a>
+      <nav aria-label="Primary navigation">
+        <a class="nav-link" href="#products">Products</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <p class="eyebrow">DeReset</p>
+        <h1 id="hero-title">The pragmatic reset.</h1>
+        <p class="hero-copy">Practical guides for people who want a clear reset without the noise.</p>
+        <a class="button" href="#products">Explore the guides</a>
+      </div>
+    </section>
+
+    <section class="story section" aria-labelledby="story-title">
+      <div class="container narrow">
+        <p class="section-label">Why DeReset</p>
+        <h2 id="story-title">Focused guides for everyday resets.</h2>
+        <p>
+          DeReset is a publisher of focused guides for everyday resets —
+          decisions, boundaries, money pressure, and trust.
+          Each product is built to be used, not collected.
+          Clear steps. No theatre.
+        </p>
+      </div>
+    </section>
+
+    <section class="products section" id="products" aria-labelledby="products-title">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <p class="section-label">The library</p>
+            <h2 id="products-title">Products</h2>
+          </div>
+          <p class="section-intro">Focused guides for different kinds of reset.</p>
+        </div>
+
+        <div class="product-grid">
+          <!-- Structural cards only. Links added only when production subdomain is verified. -->
+          <article class="product-card">
+            <span class="product-number">01</span>
+            <h3>Decision Load Reset</h3>
+            <p class="product-status">Coming soon</p>
+          </article>
+
+          <article class="product-card">
+            <span class="product-number">02</span>
+            <h3>Trust Override Method</h3>
+            <p class="product-status">Coming soon</p>
+          </article>
+
+          <article class="product-card">
+            <span class="product-number">03</span>
+            <h3>Midday Reset Protocol</h3>
+            <p class="product-status">Coming soon</p>
+          </article>
+
+          <article class="product-card">
+            <span class="product-number">04</span>
+            <h3>Relationship Boundaries guide</h3>
+            <p class="product-status">Coming soon</p>
+          </article>
+
+          <article class="product-card">
+            <span class="product-number">05</span>
+            <h3>Paycheck-to-Paycheck Escape</h3>
+            <p class="product-status">Coming soon</p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 DeReset</p>
+      <p class="footer-note">The pragmatic reset.</p>
+    </div>
+  </footer>
 </body>
 </html>
