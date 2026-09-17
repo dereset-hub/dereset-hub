@@ -124,14 +124,34 @@ a {
   color: var(--color-accent);
 }
 
-/* ---------- Hero (charcoal — uploaded strength) ---------- */
+/* ---------- Hero (photo background + dark overlay for text) ---------- */
 .hero {
+  position: relative;
+  isolation: isolate;
   padding-block: clamp(5rem, 12vw, 9rem);
-  background: var(--color-charcoal);
   color: var(--color-text-on-dark);
+  background-color: var(--color-charcoal);
+  background-image: url("/assets/hero-background.png");
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(
+    105deg,
+    rgba(26, 26, 26, 0.88) 0%,
+    rgba(26, 26, 26, 0.72) 42%,
+    rgba(26, 26, 26, 0.45) 100%
+  );
 }
 
 .hero-inner {
+  position: relative;
   max-width: 60rem;
 }
 
