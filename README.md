@@ -1,56 +1,52 @@
-# DeReset Brand Hub — Step 4.5 Deploy Package (Footer Legal)
+# DeReset Brand Hub — Step 4.5 Deploy Package v2 (Footer Legal — style fix)
 
-**Status:** Ready to deploy — AI DPL OS-approved content, platform-level QA applied
+**Status:** Ready to deploy — fixes a real bug in the v1 package you already deployed
 **Date:** 2026-09-18
 
-## What's in this package
+## Why there's a "v2"
 
-Four files, all going to the root of the `dereset-hub` repo:
+After you deployed the first Step 4.5 package, you reported that `/privacy`, `/terms`, and `/contact` looked like plain, unstyled HTML with none of the site's identity. That wasn't a cosmetic choice — it was a bug in what I gave you.
 
-- `index.html` — the existing hub homepage, with one change: the footer now links to Privacy Policy, Terms of Service, and a support email, instead of being copyright-only.
-- `privacy.html` — new. Will be reachable at `dereset.com/privacy`.
-- `terms.html` — new. Will be reachable at `dereset.com/terms`.
-- `contact.html` — new. Will be reachable at `dereset.com/contact`.
+Those three pages carried their CSS inside a `<style>` block in the page itself, rather than in a separate `.css` file. Your site's security headers (Decision 006) include a Content-Security-Policy that only allows styling from `'self'` (your own external stylesheet files) — and that same policy blocks embedded `<style>` blocks too, not just inline `style="..."` attributes on individual elements. I checked for the second thing and missed the first, so the whole `<style>` block was silently discarded by the browser, and you got unstyled HTML. My mistake — this package fixes it properly.
 
-(Cloudflare Pages automatically serves `privacy.html` at the clean URL `/privacy` — you don't need to rename anything or create folders.)
+## What's different in this package
 
-## What changed and why
+- `privacy.html`, `terms.html`, `contact.html` — **rebuilt** to use the exact same shared header, footer, and layout as your homepage (`index.html`), pulling their styling from real external stylesheets instead of an embedded `<style>` block. No legal wording changed anywhere — every sentence is still exactly what AI DPL OS approved.
+- `styles/legal.css` — **new file.** Holds just the legal-page-specific styling (headings, spacing, the contact button, etc.), reusing your existing color/type/spacing tokens from `dereset-tokens.css`. This is the file that was missing before.
+- `index.html` — **unchanged** from what you already deployed. You do not need to touch it again.
 
-AI DPL OS approved and supplied real Privacy Policy, Terms of Service, and Contact page content for DeReset (entity name, support email, refund policy, data-handling disclosures — see `05-Decision-Log.md` Decision 007 for the full record). Two small technical adjustments were made before packaging, both under this platform project's own authority (shared design system + security headers), not new content decisions:
+## How to install this (step-by-step)
 
-1. **Typography aligned to the locked DeReset design system.** The supplied pages used a generic serif font throughout. Switched headings to Playfair Display and body text to Poppins — the same fonts already used on the homepage — so the new pages look like part of the same site rather than a separate document.
-2. **Removed two inline `style="..."` attributes on the Contact page.** The site's security headers (Decision 006) block inline styles via Content-Security-Policy — this is intentional and not being changed. Those two small styling rules were moved into the page's own `<style>` block as CSS classes instead, so they render correctly without weakening the security policy.
+You'll do two things: add one new file, and replace three existing ones.
 
-No legal wording was changed. No dollar amounts, entity names, policy terms, or dates were altered from what AI DPL OS supplied.
+**Part 1 — Add the new stylesheet**
 
-## How to install this (step-by-step, no prior GitHub experience needed)
+1. Go to **github.com**, sign in, and open your `dereset-hub` repository.
+2. Click into the **`styles`** folder (it already has `dereset-tokens.css` and `site.css` in it from your earlier deploys).
+3. Click **Add file** → **Upload files**.
+4. Drag in `legal.css` from the `styles` folder of this package (or click "choose your files" and select it).
+5. Scroll down and click **Commit changes**.
 
-This uses the same method you've used for the last two deploys.
+**Part 2 — Replace the three broken pages**
 
-1. Go to **github.com** and sign in.
-2. Open your `dereset-hub` repository (the one connected to Cloudflare Pages — it's the repo you uploaded `index.html` to before).
-3. You'll see a file list. Click on **`index.html`** in that list to open it.
-4. Click the **pencil icon** (Edit this file) in the top-right of the file view.
-5. Select all the text in the editor (click inside it, then press `Ctrl+A` on Windows/Linux or `Cmd+A` on Mac) and delete it.
-6. Open the `index.html` file from **this package** on your computer in a plain text editor (Notepad, TextEdit, VS Code — anything that shows raw text, not Word), select all its contents, copy them, and paste them into the GitHub editor.
-7. Scroll down, and under "Commit changes," leave the default message (or type something like "Step 4.5: footer legal links") and click **Commit changes**.
-8. Now go back to the repository's main file list. Click the green **Add file** button, then **Upload files**.
-9. Drag in the three new files from this package — `privacy.html`, `terms.html`, `contact.html` — or click "choose your files" and select them.
-10. Scroll down and click **Commit changes**.
-11. Cloudflare Pages will automatically pick up both commits and redeploy (you've seen this happen automatically the last two times). Give it 1–2 minutes.
-12. To check it worked: visit `https://dereset.com/privacy`, `https://dereset.com/terms`, and `https://dereset.com/contact` in your browser, and check that the homepage footer now shows the new links.
+6. Go back to the repository's main file list (click the repo name at the top, or "dereset-hub" in the breadcrumb).
+7. Click **Add file** → **Upload files**.
+8. Drag in `privacy.html`, `terms.html`, and `contact.html` from this package's top-level folder. GitHub will recognize these as the same filenames already in the repo and will overwrite them when you commit.
+9. Scroll down and click **Commit changes**.
+10. Cloudflare Pages will automatically redeploy (same as your last few deploys). Give it 1–2 minutes.
 
-That's it — same process as before, just four files this time instead of one.
+**Do not re-upload `index.html`** — it hasn't changed since your last deploy.
+
+11. To check it worked: visit `https://dereset.com/privacy`, `https://dereset.com/terms`, and `https://dereset.com/contact`. They should now look like proper DeReset pages — the same sticky header and wordmark as the homepage, the same fonts and colors, a readable text column, and a matching footer — not plain black-on-white text.
 
 ## Post-deploy checklist
 
-- [ ] `dereset.com/privacy` loads and shows the Privacy Policy
-- [ ] `dereset.com/terms` loads and shows the Terms of Service
-- [ ] `dereset.com/contact` loads and shows the Contact page
-- [ ] Homepage footer shows Privacy Policy / Terms of Service / email links
+- [ ] `dereset.com/privacy` shows the DeReset header (dark wordmark, cream background) and footer, not a bare unstyled page
+- [ ] `dereset.com/terms` and `dereset.com/contact` look the same way
+- [ ] Headings are in the serif display font, body text in the sans-serif font, matching the homepage
+- [ ] The gold "email us" button appears correctly on the Contact page
 - [ ] Links between the three legal pages and back to the homepage work
-- [ ] Fonts look consistent with the rest of the site (headings in the serif display font, body in the sans-serif font)
-- [ ] No visibly broken/unstyled elements on the Contact page (the inline-style fix should be invisible — page should look identical to how it did before the CSP fix)
+- [ ] Browser console (right-click → Inspect → Console tab) shows no red CSP errors when visiting any of the three pages — if you're comfortable checking this, it's the most direct confirmation the fix worked
 
 ## Out of scope (flagged, not blocking this deploy)
 

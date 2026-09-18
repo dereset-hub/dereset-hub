@@ -1,137 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Terms of Service — DeReset</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="canonical" href="https://dereset.com/terms">
-<style>
-  :root {
-    --gold: #f0c234;
-    --cream: #f5f0e8;
-    --charcoal: #1a1a1a;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    background: var(--cream);
-    color: var(--charcoal);
-    font-family: 'Poppins', Georgia, 'Times New Roman', serif;
-    line-height: 1.65;
-  }
-  header {
-    background: var(--charcoal);
-    color: var(--cream);
-    padding: 28px 20px;
-    text-align: center;
-  }
-  header a {
-    color: var(--cream);
-    text-decoration: none;
-    font-size: 1.4rem;
-    letter-spacing: 0.04em;
-    font-weight: bold;
-  }
-  header .tagline {
-    color: var(--gold);
-    font-size: 0.85rem;
-    margin-top: 4px;
-    font-style: italic;
-  }
-  main {
-    max-width: 760px;
-    margin: 0 auto;
-    padding: 40px 20px 80px;
-  }
-  h1 {
-    font-size: 2rem;
-    border-bottom: 3px solid var(--gold);
-    padding-bottom: 12px;
-    margin-bottom: 8px;
-  }
-  .effective-date {
-    color: #555;
-    font-size: 0.9rem;
-    margin-bottom: 32px;
-  }
-  h2 {
-    font-size: 1.3rem;
-    margin-top: 36px;
-  }
-  a { color: #8a6a10; }
-  a:hover { color: var(--charcoal); }
-  footer {
-    text-align: center;
-    padding: 24px 20px 40px;
-    font-size: 0.85rem;
-    color: #555;
-  }
-  footer a { color: #555; }
-  ul { padding-left: 22px; }
-  .nav-links {
-    text-align: center;
-    margin-top: 40px;
-    padding-top: 20px;
-    border-top: 1px solid #ddd;
-    font-size: 0.9rem;
-  }
-  .nav-links a { margin: 0 10px; }
-  h1, h2, header a {
-    font-family: 'Playfair Display', Georgia, serif;
-  }
-</style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Terms of Service — DeReset</title>
+  <meta name="description" content="The terms that govern purchasing and using DeReset's digital guides.">
+
+  <link rel="canonical" href="https://dereset.com/terms">
+
+  <!-- Favicon Package A (locked) -->
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#f5f0e8">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://dereset.com/terms">
+  <meta property="og:title" content="Terms of Service — DeReset">
+  <meta property="og:description" content="The terms that govern purchasing and using DeReset's digital guides.">
+  <meta property="og:site_name" content="DeReset">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Terms of Service — DeReset">
+  <meta name="twitter:description" content="The terms that govern purchasing and using DeReset's digital guides.">
+
+  <!-- Fonts: CDN for v1. Loading method remains TODO in design system. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/styles/dereset-tokens.css">
+  <link rel="stylesheet" href="/styles/site.css">
+  <link rel="stylesheet" href="/styles/legal.css">
 </head>
 <body>
-<header>
-  <a href="https://dereset.com">DeReset</a>
-  <div class="tagline">The pragmatic reset.</div>
-</header>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<main>
-  <h1>Terms of Service</h1>
-  <p class="effective-date">Effective date: September 18, 2026</p>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="/" aria-label="DeReset home">
+        <img
+          src="/assets/dereset-wordmark-dark.png"
+          alt="DeReset"
+          width="220"
+          height="73"
+        >
+      </a>
+      <nav aria-label="Primary navigation">
+        <a class="nav-link" href="/#products">Products</a>
+      </nav>
+    </div>
+  </header>
 
-  <p>These Terms of Service ("Terms") govern your purchase and use of digital products sold under the DeReset brand at dereset.com and its product subdomains. By purchasing or using a DeReset product, you agree to these Terms.</p>
+  <main id="main" class="legal-main">
+    <div class="container narrow">
+      <h1 class="legal-title">Terms of Service</h1>
+      <p class="legal-effective-date">Effective date: September 18, 2026</p>
 
-  <h2>1. What DeReset sells</h2>
-  <p>DeReset publishes short, practical digital guides delivered as downloadable files (PDF), together with companion tools such as worksheets and reference cards. Every DeReset product is a digital download — there is no physical product, and nothing is shipped.</p>
+      <div class="legal-body">
+        <p>These Terms of Service ("Terms") govern your purchase and use of digital products sold under the DeReset brand at dereset.com and its product subdomains. By purchasing or using a DeReset product, you agree to these Terms.</p>
 
-  <h2>2. How purchases work</h2>
-  <p>All DeReset products are sold through <strong>Gumroad</strong>, at our storefront (dereset.gumroad.com) or a linked product-specific listing. Gumroad processes your payment, issues your receipt, and acts as the merchant of record for the transaction. Delivery of your files happens through Gumroad (typically via your Gumroad Library or a direct download link sent to your email).</p>
-  <p>DeReset does not directly collect or store your payment information. Your relationship with Gumroad for payment processing is governed by Gumroad's own terms, available at <a href="https://gumroad.com/terms" target="_blank" rel="noopener">gumroad.com/terms</a>.</p>
+        <h2>1. What DeReset sells</h2>
+        <p>DeReset publishes short, practical digital guides delivered as downloadable files (PDF), together with companion tools such as worksheets and reference cards. Every DeReset product is a digital download — there is no physical product, and nothing is shipped.</p>
 
-  <h2>3. License to use the product</h2>
-  <p>When you purchase a DeReset guide or tool, you receive a personal, non-transferable license to use it for your own purposes. You may not resell, redistribute, publicly share, or claim authorship of DeReset content. All content remains the intellectual property of DeReset.</p>
+        <h2>2. How purchases work</h2>
+        <p>All DeReset products are sold through <strong>Gumroad</strong>, at our storefront (dereset.gumroad.com) or a linked product-specific listing. Gumroad processes your payment, issues your receipt, and acts as the merchant of record for the transaction. Delivery of your files happens through Gumroad (typically via your Gumroad Library or a direct download link sent to your email).</p>
+        <p>DeReset does not directly collect or store your payment information. Your relationship with Gumroad for payment processing is governed by Gumroad's own terms, available at <a href="https://gumroad.com/terms" target="_blank" rel="noopener">gumroad.com/terms</a>.</p>
 
-  <h2>4. Refund policy</h2>
-  <p>DeReset offers a standard <strong>30-day money-back guarantee</strong> on its digital products: if you use a guide and it doesn't work for you, email us at <a href="mailto:support@dereset.com">support@dereset.com</a> within 30 days of your purchase and we will refund your payment in full. No forms, surveys, or conditions attached.</p>
-  <p>Some products may state additional or product-specific guarantee language on their own sales page; where that is the case, the more specific product-page language and this general 30-day policy are intended to be consistent, and the product-page language controls for that specific product. Refunds are processed back through Gumroad to your original payment method.</p>
+        <h2>3. License to use the product</h2>
+        <p>When you purchase a DeReset guide or tool, you receive a personal, non-transferable license to use it for your own purposes. You may not resell, redistribute, publicly share, or claim authorship of DeReset content. All content remains the intellectual property of DeReset.</p>
 
-  <h2>5. No professional advice</h2>
-  <p>DeReset's guides offer general, practical, self-help-style information on productivity, decision-making, confidence, and related everyday topics. They are not medical, psychological, legal, or financial advice, and are not a substitute for care from a licensed professional. If a specific guide addresses a claims-safety boundary relevant to its topic, that boundary is stated on the guide's own sales page and inside the guide itself.</p>
+        <h2>4. Refund policy</h2>
+        <p>DeReset offers a standard <strong>30-day money-back guarantee</strong> on its digital products: if you use a guide and it doesn't work for you, email us at <a href="mailto:support@dereset.com">support@dereset.com</a> within 30 days of your purchase and we will refund your payment in full. No forms, surveys, or conditions attached.</p>
+        <p>Some products may state additional or product-specific guarantee language on their own sales page; where that is the case, the more specific product-page language and this general 30-day policy are intended to be consistent, and the product-page language controls for that specific product. Refunds are processed back through Gumroad to your original payment method.</p>
 
-  <h2>6. Disclaimer of results</h2>
-  <p>We do not guarantee specific results, outcomes, or income from using any DeReset product. Results depend on your own effort, circumstances, and application of the material.</p>
+        <h2>5. No professional advice</h2>
+        <p>DeReset's guides offer general, practical, self-help-style information on productivity, decision-making, confidence, and related everyday topics. They are not medical, psychological, legal, or financial advice, and are not a substitute for care from a licensed professional. If a specific guide addresses a claims-safety boundary relevant to its topic, that boundary is stated on the guide's own sales page and inside the guide itself.</p>
 
-  <h2>7. Governing law</h2>
-  <p>These Terms are governed by the laws of the United States, without regard to conflict-of-law principles, and any dispute arising from these Terms or your use of a DeReset product will be resolved under that law.</p>
+        <h2>6. Disclaimer of results</h2>
+        <p>We do not guarantee specific results, outcomes, or income from using any DeReset product. Results depend on your own effort, circumstances, and application of the material.</p>
 
-  <h2>8. Changes to these Terms</h2>
-  <p>We may update these Terms as our products or policies change. The effective date above reflects the most recent revision. Continued purchase or use of a DeReset product after an update means you accept the revised Terms.</p>
+        <h2>7. Governing law</h2>
+        <p>These Terms are governed by the laws of the United States, without regard to conflict-of-law principles, and any dispute arising from these Terms or your use of a DeReset product will be resolved under that law.</p>
 
-  <h2>9. Contact</h2>
-  <p>Questions about these Terms can be sent to <a href="mailto:support@dereset.com">support@dereset.com</a>. See also our <a href="/contact">Contact page</a>.</p>
+        <h2>8. Changes to these Terms</h2>
+        <p>We may update these Terms as our products or policies change. The effective date above reflects the most recent revision. Continued purchase or use of a DeReset product after an update means you accept the revised Terms.</p>
 
-  <div class="nav-links">
-    <a href="/">Home</a> · <a href="/privacy">Privacy Policy</a> · <a href="/contact">Contact</a>
-  </div>
-</main>
+        <h2>9. Contact</h2>
+        <p>Questions about these Terms can be sent to <a href="mailto:support@dereset.com">support@dereset.com</a>. See also our <a href="/contact">Contact page</a>.</p>
+      </div>
 
-<footer>
-  © 2026 DeReset · <a href="/privacy">Privacy Policy</a> · <a href="/terms">Terms of Service</a> · <a href="mailto:support@dereset.com">support@dereset.com</a>
-</footer>
+      <div class="legal-nav">
+        <a href="/">Home</a>
+        <a href="/privacy">Privacy Policy</a>
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 DeReset &middot; <a href="/privacy">Privacy Policy</a> &middot; <a href="/terms">Terms of Service</a> &middot; <a href="mailto:support@dereset.com">support@dereset.com</a></p>
+      <p class="footer-note">The pragmatic reset.</p>
+    </div>
+  </footer>
 </body>
 </html>
