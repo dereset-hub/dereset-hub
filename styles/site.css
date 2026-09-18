@@ -356,3 +356,7 @@ a {
     transition: none;
   }
 }
+
+ .site-header nav a.nav-link + a.nav-link {
+     margin-left: 1.75rem;
+  }
