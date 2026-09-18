@@ -332,23 +332,13 @@ a {
   border-color: var(--color-accent, var(--color-gold));
 }
 
-/* 6th slot: archive/storefront link, active once grid exceeds 6 products (Decision 008) */
+/* 6th slot: archive/storefront link, active once grid exceeds 6 products (Decision 008).
+   A normal grid cell (no column span) so it auto-flows into the last position and fills
+   out the grid instead of leaving an empty cell -- uses the same .product-card-img /
+   number / heading / blurb / link structure as the 5 product cards for height parity. */
 .product-card-archive {
   border-style: dashed;
   background: rgba(240, 194, 52, 0.08);
-}
-
-/* Decorative placeholder filling the archive card's image slot, so its structure
-   (and therefore height) matches the 5 product cards exactly -- Decision 008 */
-.product-card-placeholder {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: var(--radius-md);
-  margin-bottom: var(--space-2);
-  background: linear-gradient(135deg, rgba(240, 194, 52, 0.16), rgba(26, 26, 26, 0.05));
 }
 
 /* ---------- Footer (dark, simple — no fake legal links) ---------- */
