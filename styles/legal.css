@@ -1,0 +1,159 @@
+/**
+ * DeReset — Legal page styles (Privacy / Terms / Contact)
+ * External stylesheet so these pages render under the site's CSP
+ * (style-src 'self', no 'unsafe-inline' — see Decision 006 / 007).
+ * Reuses tokens from dereset-tokens.css and layout primitives from site.css
+ * (.container, .narrow, .site-header, .site-footer) rather than redefining them.
+ */
+
+.legal-main {
+  padding-block: clamp(3rem, 7vw, 5rem) clamp(4rem, 8vw, 6rem);
+}
+
+.legal-title {
+  margin: 0 0 var(--space-2);
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-semibold);
+  font-size: clamp(var(--text-4xl), 6vw, var(--text-5xl));
+  letter-spacing: -0.02em;
+  line-height: var(--leading-tight);
+}
+
+.legal-effective-date {
+  margin: 0 0 var(--space-10);
+  color: var(--color-text);
+  opacity: 0.6;
+  font-size: var(--text-sm);
+}
+
+.legal-body h2 {
+  margin: var(--space-10) 0 var(--space-3);
+  font-family: var(--font-display);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--text-2xl);
+  line-height: var(--leading-snug);
+}
+
+.legal-body p {
+  margin: 0 0 var(--space-5);
+  line-height: var(--leading-relaxed);
+}
+
+.legal-body ul {
+  margin: 0 0 var(--space-5);
+  padding-left: 1.4rem;
+}
+
+.legal-body li {
+  margin-bottom: var(--space-2);
+  line-height: var(--leading-relaxed);
+}
+
+.legal-body a {
+  color: var(--color-charcoal);
+  text-decoration: underline;
+  text-decoration-color: var(--color-border-strong);
+  text-underline-offset: 2px;
+}
+
+.legal-body a:hover {
+  text-decoration-color: var(--color-accent);
+}
+
+.legal-body strong {
+  font-weight: var(--font-weight-semibold);
+}
+
+.legal-nav {
+  margin-top: var(--space-12);
+  padding-top: var(--space-6);
+  border-top: var(--border-width) solid var(--color-border);
+  font-size: var(--text-sm);
+  display: flex;
+  gap: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.legal-nav-center {
+  justify-content: center;
+}
+
+.legal-nav a {
+  color: var(--color-text);
+  opacity: 0.75;
+  text-decoration: none;
+}
+
+.legal-nav a:hover {
+  opacity: 1;
+  color: var(--color-accent);
+}
+
+/* ---------- Contact page ---------- */
+.contact-hero {
+  text-align: center;
+}
+
+.gold-rule {
+  width: 56px;
+  height: 3px;
+  background: var(--color-gold);
+  margin: var(--space-4) auto var(--space-8);
+  border-radius: var(--radius-full);
+}
+
+.contact-card {
+  max-width: 28rem;
+  margin: var(--space-8) auto 0;
+  padding: var(--space-8);
+  border: var(--border-width) solid var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.5);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+
+.contact-card .lead {
+  margin: 0 0 var(--space-3);
+  font-size: var(--text-lg);
+}
+
+.contact-card .email-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.9rem 1.6rem;
+  background: var(--color-gold);
+  color: var(--color-charcoal);
+  font-size: var(--text-base);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: none;
+  border-radius: var(--radius-full);
+  transition: transform var(--transition-fast), background-color var(--transition-fast);
+}
+
+.contact-card .email-button:hover {
+  transform: translateY(-1px);
+  background: #f3cb4a;
+}
+
+.contact-note {
+  max-width: 32rem;
+  margin: var(--space-6) auto 0;
+  color: var(--color-text);
+  opacity: 0.7;
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  text-align: center;
+}
+
+.contact-note .inline-link {
+  opacity: 1;
+}
+
+@media (max-width: 48rem) {
+  .legal-nav {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+}
