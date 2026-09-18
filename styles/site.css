@@ -258,7 +258,7 @@ a {
 
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--space-4);
 }
 
@@ -271,12 +271,7 @@ a {
   box-shadow: var(--shadow-sm);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-}
-
-.product-card:last-child {
-  grid-column: 1 / -1;
-  max-width: calc(50% - var(--space-2));
+  gap: var(--space-2);
 }
 
 .product-number {
@@ -288,7 +283,7 @@ a {
 
 .product-card h3 {
   max-width: 18ch;
-  margin: var(--space-6) 0 0;
+  margin: 0;
   font-size: clamp(1.5rem, 2.8vw, 2.1rem);
 }
 
@@ -297,6 +292,50 @@ a {
   font-size: var(--text-sm);
   font-weight: var(--font-weight-semibold);
   opacity: 0.6;
+}
+
+/* Product card image (Decision 008) */
+.product-card-img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-2);
+  background: var(--color-border);
+}
+
+/* One-line product descriptor, sourced from Gumroad listing copy (Decision 008) */
+.product-blurb {
+  margin: 0;
+  font-size: var(--text-sm);
+  line-height: var(--leading-normal);
+  opacity: 0.75;
+}
+
+.product-link {
+  display: inline-block;
+  margin-top: auto;
+  padding-top: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-charcoal);
+  text-decoration: none;
+  border-bottom: 1px solid var(--color-border-strong);
+  padding-bottom: 2px;
+  align-self: flex-start;
+}
+
+.product-link:hover {
+  color: var(--color-accent, var(--color-gold));
+  border-color: var(--color-accent, var(--color-gold));
+}
+
+/* 6th slot: archive/storefront link, active once grid exceeds 6 products (Decision 008) */
+.product-card-archive {
+  border-style: dashed;
+  background: rgba(240, 194, 52, 0.08);
+  justify-content: center;
 }
 
 /* ---------- Footer (dark, simple — no fake legal links) ---------- */
@@ -323,6 +362,12 @@ a {
 }
 
 /* ---------- Responsive ---------- */
+@media (max-width: 64rem) {
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 @media (max-width: 48rem) {
   .section-heading {
     align-items: start;
@@ -331,11 +376,6 @@ a {
 
   .product-grid {
     grid-template-columns: 1fr;
-  }
-
-  .product-card:last-child {
-    grid-column: auto;
-    max-width: none;
   }
 
   .footer-inner {
