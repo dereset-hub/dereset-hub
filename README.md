@@ -1,54 +1,69 @@
-# DeReset Brand Hub — Step 4.5 Deploy Package v2 (Footer Legal — style fix)
+# DeReset Brand Hub — Step 4.5 Deploy Package v3 (Footer/Nav — Contact link fix)
 
-**Status:** Ready to deploy — fixes a real bug in the v1 package you already deployed
+**Status:** Ready to deploy — fixes a real navigation gap you caught
 **Date:** 2026-09-18
 
-## Why there's a "v2"
+## Why there's a "v3"
 
-After you deployed the first Step 4.5 package, you reported that `/privacy`, `/terms`, and `/contact` looked like plain, unstyled HTML with none of the site's identity. That wasn't a cosmetic choice — it was a bug in what I gave you.
+You spotted it: the Contact page wasn't reachable from the homepage, the header nav, or the footer on any page — the only way in was clicking through from a link buried inside the Privacy or Terms page text. That's a real gap in the shared header/footer, not a design choice.
 
-Those three pages carried their CSS inside a `<style>` block in the page itself, rather than in a separate `.css` file. Your site's security headers (Decision 006) include a Content-Security-Policy that only allows styling from `'self'` (your own external stylesheet files) — and that same policy blocks embedded `<style>` blocks too, not just inline `style="..."` attributes on individual elements. I checked for the second thing and missed the first, so the whole `<style>` block was silently discarded by the browser, and you got unstyled HTML. My mistake — this package fixes it properly.
+Cause: the shared footer only linked Privacy, Terms, and a plain `mailto:` address — never `/contact`. The shared header nav only had "Products". Since your homepage (`index.html`) uses that same shared header and footer, this bug affects the homepage too, not just the three legal pages.
 
 ## What's different in this package
 
-- `privacy.html`, `terms.html`, `contact.html` — **rebuilt** to use the exact same shared header, footer, and layout as your homepage (`index.html`), pulling their styling from real external stylesheets instead of an embedded `<style>` block. No legal wording changed anywhere — every sentence is still exactly what AI DPL OS approved.
-- `styles/legal.css` — **new file.** Holds just the legal-page-specific styling (headings, spacing, the contact button, etc.), reusing your existing color/type/spacing tokens from `dereset-tokens.css`. This is the file that was missing before.
-- `index.html` — **unchanged** from what you already deployed. You do not need to touch it again.
+- `privacy.html`, `terms.html`, `contact.html` — **footer updated**: the old `mailto:support@dereset.com` text link is now a proper `Contact` link to `/contact`. **Header nav updated**: added a `Contact` link next to `Products`, so Contact is reachable from every page, not just from inside Privacy/Terms.
+- No legal wording changed. No layout, styling, or CSP-related files changed — this is a links-only fix.
+- `styles/legal.css` — unchanged, not included in this package (you already have it from v2).
+- `index.html` — **needs the same fix, but isn't included as a file here.** I don't have a verified current copy of your live `index.html` in this session, so rather than risk uploading a stale version over your real homepage, Part 2 below gives you a small, safe copy-paste edit to make directly on GitHub.
 
 ## How to install this (step-by-step)
 
-You'll do two things: add one new file, and replace three existing ones.
-
-**Part 1 — Add the new stylesheet**
+**Part 1 — Replace the three legal pages**
 
 1. Go to **github.com**, sign in, and open your `dereset-hub` repository.
-2. Click into the **`styles`** folder (it already has `dereset-tokens.css` and `site.css` in it from your earlier deploys).
-3. Click **Add file** → **Upload files**.
-4. Drag in `legal.css` from the `styles` folder of this package (or click "choose your files" and select it).
-5. Scroll down and click **Commit changes**.
+2. Click **Add file** → **Upload files**.
+3. Drag in `privacy.html`, `terms.html`, and `contact.html` from this package. GitHub will recognize these as the same filenames already in the repo and overwrite them when you commit.
+4. Scroll down and click **Commit changes**.
 
-**Part 2 — Replace the three broken pages**
+**Part 2 — Fix the homepage's header and footer directly on GitHub**
 
-6. Go back to the repository's main file list (click the repo name at the top, or "dereset-hub" in the breadcrumb).
-7. Click **Add file** → **Upload files**.
-8. Drag in `privacy.html`, `terms.html`, and `contact.html` from this package's top-level folder. GitHub will recognize these as the same filenames already in the repo and will overwrite them when you commit.
-9. Scroll down and click **Commit changes**.
-10. Cloudflare Pages will automatically redeploy (same as your last few deploys). Give it 1–2 minutes.
+5. From your repository's main file list, click on **`index.html`**.
+6. Click the **pencil icon** (Edit this file) near the top right of the file view.
+7. Use your browser's find function (Ctrl+F / Cmd+F won't search inside GitHub's editor — instead just look for the lines described below) to find the navigation line inside the `<header class="site-header">` section. It will look like this:
 
-**Do not re-upload `index.html`** — it hasn't changed since your last deploy.
+   ```html
+   <a class="nav-link" href="/#products">Products</a>
+   ```
 
-11. To check it worked: visit `https://dereset.com/privacy`, `https://dereset.com/terms`, and `https://dereset.com/contact`. They should now look like proper DeReset pages — the same sticky header and wordmark as the homepage, the same fonts and colors, a readable text column, and a matching footer — not plain black-on-white text.
+   Right after that line, add a new line so it reads:
+
+   ```html
+   <a class="nav-link" href="/#products">Products</a>
+   <a class="nav-link" href="/contact">Contact</a>
+   ```
+
+8. Scroll down to the `<footer class="site-footer">` section near the bottom. Find the line that looks like this (yours may end in `support@dereset.com</a>` from a `mailto:` link, or may already differ slightly — match on the overall shape):
+
+   ```html
+   <p>&copy; 2026 DeReset &middot; <a href="/privacy">Privacy Policy</a> &middot; <a href="/terms">Terms of Service</a> &middot; <a href="mailto:support@dereset.com">support@dereset.com</a></p>
+   ```
+
+   Replace it with:
+
+   ```html
+   <p>&copy; 2026 DeReset &middot; <a href="/privacy">Privacy Policy</a> &middot; <a href="/terms">Terms of Service</a> &middot; <a href="/contact">Contact</a></p>
+   ```
+
+9. Scroll to the bottom of the editor, add a short commit message (e.g. "Add Contact link to header/footer"), and click **Commit changes**.
+
+If your live `index.html`'s footer/header text doesn't match what's shown above exactly (for example if you've made other edits since), just add the `Contact` link in the same style as the existing `Privacy Policy` / `Terms of Service` links — don't paste over anything you don't recognize. If you're unsure, paste me the current header/footer section of your live `index.html` and I'll give you an exact match.
+
+10. Cloudflare Pages will redeploy automatically. Give it 1–2 minutes.
 
 ## Post-deploy checklist
 
-- [ ] `dereset.com/privacy` shows the DeReset header (dark wordmark, cream background) and footer, not a bare unstyled page
-- [ ] `dereset.com/terms` and `dereset.com/contact` look the same way
-- [ ] Headings are in the serif display font, body text in the sans-serif font, matching the homepage
-- [ ] The gold "email us" button appears correctly on the Contact page
-- [ ] Links between the three legal pages and back to the homepage work
-- [ ] Browser console (right-click → Inspect → Console tab) shows no red CSP errors when visiting any of the three pages — if you're comfortable checking this, it's the most direct confirmation the fix worked
-
-## Out of scope (flagged, not blocking this deploy)
-
-- Product-page footers on Gumroad sales pages still point to Gumroad's generic legal links, not the new DeReset-hosted ones — AI DPL OS flagged this as a follow-up cleanup, not part of this handoff.
-- No lawyer has reviewed this content — AI DPL OS's own response noted this and recommended a real review if DeReset's sales grow or a dispute becomes a real possibility.
+- [ ] Homepage header shows a "Contact" link next to "Products"
+- [ ] Homepage footer shows Privacy Policy · Terms of Service · Contact
+- [ ] Same header/footer links appear correctly on `/privacy`, `/terms`, and `/contact`
+- [ ] Clicking "Contact" from the homepage lands on `/contact` and looks fully styled (from the v2 fix)
+- [ ] No leftover `mailto:` link needed — the Contact page itself has the gold "email us" button
