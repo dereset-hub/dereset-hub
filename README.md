@@ -1,57 +1,58 @@
-# DeReset Brand Hub — Step 4.4 Static Package (Merged, Decision 005 logo update)
+# DeReset Brand Hub — Step 4.5 Deploy Package (Footer Legal)
 
-**Status:** Source ready for deploy — not yet production-verified  
-**Date:** 2026-09-17 (logo swap applied same day, post Decision 005)
+**Status:** Ready to deploy — AI DPL OS-approved content, platform-level QA applied
+**Date:** 2026-09-18
 
-## Decision 005 — Header logo swap (2026-09-17)
+## What's in this package
 
-Header wordmark changed from the light-transparent variant to the **dark wordmark**, on the same cream header background. This supersedes the "Critical fix #1" pairing described below and the LOCKED usage rule in `04-Design-System-and-Brand-Assets.md`. See the platform project's Decision Log (Decision 005) for the full DETECT → RECOMMEND → APPROVE record. Only `index.html` changed — no asset files were added or removed; both wordmark PNGs remain in `/assets/` for future use.
+Four files, all going to the root of the `dereset-hub` repo:
 
-## What this is
+- `index.html` — the existing hub homepage, with one change: the footer now links to Privacy Policy, Terms of Service, and a support email, instead of being copyright-only.
+- `privacy.html` — new. Will be reachable at `dereset.com/privacy`.
+- `terms.html` — new. Will be reachable at `dereset.com/terms`.
+- `contact.html` — new. Will be reachable at `dereset.com/contact`.
 
-Production-ready static source for `dereset.com` (Cloudflare Pages project `dereset-hub`).
+(Cloudflare Pages automatically serves `privacy.html` at the clean URL `/privacy` — you don't need to rename anything or create folders.)
 
-Merged from:
-- Platform-built package (tokens, full favicon set, light wordmark on cream header, sticky header)
-- External Step 4.4 package (dark charcoal hero, editorial type scale, skip-link, 404, robots, simpler footer)
+## What changed and why
 
-## Critical fixes applied in merge
+AI DPL OS approved and supplied real Privacy Policy, Terms of Service, and Contact page content for DeReset (entity name, support email, refund policy, data-handling disclosures — see `05-Decision-Log.md` Decision 007 for the full record). Two small technical adjustments were made before packaging, both under this platform project's own authority (shared design system + security headers), not new content decisions:
 
-1. **Logo contrast** — External package placed the *dark* wordmark on the charcoal hero/header context. Merged package uses the **light transparent wordmark** on the cream sticky header (correct pairing per locked design system).
-2. **Full favicon set** — Android Chrome 192/512 restored.
-3. **Font loading** — Playfair Display + Poppins loaded via Google Fonts CDN for v1 (loading method still TODO in design system).
-4. **No invented claims** — All product cards remain “Coming soon”; no live links, pricing, or status over-claims.
-5. **No fake legal links** — Footer is structural only (© + tagline).
+1. **Typography aligned to the locked DeReset design system.** The supplied pages used a generic serif font throughout. Switched headings to Playfair Display and body text to Poppins — the same fonts already used on the homepage — so the new pages look like part of the same site rather than a separate document.
+2. **Removed two inline `style="..."` attributes on the Contact page.** The site's security headers (Decision 006) block inline styles via Content-Security-Policy — this is intentional and not being changed. Those two small styling rules were moved into the page's own `<style>` block as CSS classes instead, so they render correctly without weakening the security policy.
 
-## Deploy contract
+No legal wording was changed. No dollar amounts, entity names, policy terms, or dates were altered from what AI DPL OS supplied.
 
-| Field | Value |
-|-------|-------|
-| Rendering | Static HTML/CSS |
-| Framework | None |
-| Build command | *(blank)* |
-| Output directory | `/` (repository root) |
-| JS | None required for v1 |
-| Analytics | Deferred to Step 4.6 |
-| Security headers | Deferred to Step 4.7 (`_headers`) |
+## How to install this (step-by-step, no prior GitHub experience needed)
 
-## Install into Pages repo
+This uses the same method you've used for the last two deploys.
 
-Copy the contents of this folder to the root of `dereset-hub/dereset-hub` (or equivalent), replacing the placeholder. Commit and push to the production branch.
+1. Go to **github.com** and sign in.
+2. Open your `dereset-hub` repository (the one connected to Cloudflare Pages — it's the repo you uploaded `index.html` to before).
+3. You'll see a file list. Click on **`index.html`** in that list to open it.
+4. Click the **pencil icon** (Edit this file) in the top-right of the file view.
+5. Select all the text in the editor (click inside it, then press `Ctrl+A` on Windows/Linux or `Cmd+A` on Mac) and delete it.
+6. Open the `index.html` file from **this package** on your computer in a plain text editor (Notepad, TextEdit, VS Code — anything that shows raw text, not Word), select all its contents, copy them, and paste them into the GitHub editor.
+7. Scroll down, and under "Commit changes," leave the default message (or type something like "Step 4.5: footer legal links") and click **Commit changes**.
+8. Now go back to the repository's main file list. Click the green **Add file** button, then **Upload files**.
+9. Drag in the three new files from this package — `privacy.html`, `terms.html`, `contact.html` — or click "choose your files" and select them.
+10. Scroll down and click **Commit changes**.
+11. Cloudflare Pages will automatically pick up both commits and redeploy (you've seen this happen automatically the last two times). Give it 1–2 minutes.
+12. To check it worked: visit `https://dereset.com/privacy`, `https://dereset.com/terms`, and `https://dereset.com/contact` in your browser, and check that the homepage footer now shows the new links.
 
-## Post-deploy QA checklist
+That's it — same process as before, just four files this time instead of one.
 
-- [ ] https://dereset.com loads this hub (not placeholder)
-- [ ] Logo readable on cream header
-- [ ] Favicons appear in browser tab
-- [ ] Mobile layout (product grid stacks)
-- [ ] Keyboard: skip link appears on focus; focus rings visible
-- [ ] 404 page works for unknown paths
-- [ ] No console errors for missing assets
+## Post-deploy checklist
 
-## Out of scope (later steps)
+- [ ] `dereset.com/privacy` loads and shows the Privacy Policy
+- [ ] `dereset.com/terms` loads and shows the Terms of Service
+- [ ] `dereset.com/contact` loads and shows the Contact page
+- [ ] Homepage footer shows Privacy Policy / Terms of Service / email links
+- [ ] Links between the three legal pages and back to the homepage work
+- [ ] Fonts look consistent with the rest of the site (headings in the serif display font, body in the sans-serif font)
+- [ ] No visibly broken/unstyled elements on the Contact page (the inline-style fix should be invisible — page should look identical to how it did before the CSP fix)
 
-- Footer legal URLs/copy (4.5)
-- Cloudflare Web Analytics (4.6)
-- `_headers` security baseline (4.7)
-- Product live links (only when subdomain verified + AI DPL OS bridge if needed)
+## Out of scope (flagged, not blocking this deploy)
+
+- Product-page footers on Gumroad sales pages still point to Gumroad's generic legal links, not the new DeReset-hosted ones — AI DPL OS flagged this as a follow-up cleanup, not part of this handoff.
+- No lawyer has reviewed this content — AI DPL OS's own response noted this and recommended a real review if DeReset's sales grow or a dispute becomes a real possibility.
