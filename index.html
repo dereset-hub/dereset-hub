@@ -91,7 +91,7 @@
         </div>
 
         <div class="product-grid">
-          <!-- Product links go to Gumroad listing pages. Checkout is not yet enabled on Gumroad's side as of 2026-09-18 (guides pending DOCX-to-PDF conversion) -- see Decision 008. Blurbs sourced verbatim/near-verbatim from each product's own Gumroad description. Cover images are self-hosted at /assets/products/ -- see Decision 008 (revised: self-host). -->
+          <!-- Product links go to Gumroad listing pages. Checkout is not yet enabled on Gumroad's side as of 2026-09-18 (guides pending DOCX-to-PDF conversion) -- see Decision 008. Blurbs sourced verbatim/near-verbatim from each product's own Gumroad description. Cover images are self-hosted at /assets/products/ -- see Decision 008 (revised: self-host). Slot 6 (archive card) is a normal grid card (auto-flows into the last cell, filling the grid rather than leaving a gap) showing a composited "collection" image -- the why-youre-always-broke.jpg background with small framed crops of the other 4 covers fanned in front (/assets/products/archive-collection.jpg) -- see Decision 008 (revised: collection image, reverted to normal grid cell). -->
           <article class="product-card">
             <img class="product-card-img" src="/assets/products/decision-load-reset.jpg" alt="Decision Load Reset cover" loading="lazy">
             <span class="product-number">01</span>
@@ -133,13 +133,7 @@
           </article>
 
           <article class="product-card product-card-archive">
-            <div class="product-card-placeholder" aria-hidden="true">
-              <svg viewBox="0 0 48 48" width="36" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect x="6" y="10" width="13" height="28" rx="2" fill="#1a1a1a" opacity="0.14"/>
-                <rect x="17.5" y="6" width="13" height="32" rx="2" fill="#1a1a1a" opacity="0.24"/>
-                <rect x="29" y="12" width="13" height="26" rx="2" fill="#f0c234"/>
-              </svg>
-            </div>
+            <img class="product-card-img" src="/assets/products/archive-collection.jpg" alt="A small collection of DeReset guide covers" loading="lazy">
             <span class="product-number">06</span>
             <h3>More guides, one place</h3>
             <p class="product-blurb">Browse everything published so far.</p>
