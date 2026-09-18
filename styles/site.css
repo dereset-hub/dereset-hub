@@ -260,6 +260,7 @@ a {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--space-4);
+  align-items: stretch;
 }
 
 .product-card {
@@ -335,7 +336,19 @@ a {
 .product-card-archive {
   border-style: dashed;
   background: rgba(240, 194, 52, 0.08);
+}
+
+/* Decorative placeholder filling the archive card's image slot, so its structure
+   (and therefore height) matches the 5 product cards exactly -- Decision 008 */
+.product-card-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  display: flex;
+  align-items: center;
   justify-content: center;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-2);
+  background: linear-gradient(135deg, rgba(240, 194, 52, 0.16), rgba(26, 26, 26, 0.05));
 }
 
 /* ---------- Footer (dark, simple — no fake legal links) ---------- */
