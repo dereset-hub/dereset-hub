@@ -352,7 +352,7 @@ a {
 .storefront-banner-img {
   width: 100%;
   height: auto;
-  aspect-ratio: 2 / 1;
+  aspect-ratio: 1919 / 820;
   object-fit: cover;
   display: block;
   border-radius: var(--radius-md);
